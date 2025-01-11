@@ -1,13 +1,16 @@
-using UnityEngine;
+using UnityEditor;
 
-public class WindowFocus : MonoBehaviour
+[InitializeOnLoad]
+public static class PreventPauseOnLostFocus
 {
-    void Update()
+    static PreventPauseOnLostFocus()
     {
-        if (!Application.isFocused)
+        EditorApplication.playModeStateChanged += (state) =>
         {
-            Debug.Log("Unity application lost focus. Bringing it back...");
-            Application.runInBackground = false; // Ensures app doesn't run in the background
-        }
+            if (state == PlayModeStateChange.EnteredPlayMode)
+            {
+                EditorApplication.isPaused = false; // Ensure it's not paused
+            }
+        };
     }
 }
