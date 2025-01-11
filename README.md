@@ -35,9 +35,27 @@ This repository contains Unity scripts designed for projects leveraging Azure Ki
 2. Open your Unity project and import the scripts into the desired folder.
 3. Ensure that you have the Azure Kinect Sensor connected and configured using the KinectManager in your Unity scene.
 
+### Additional Required Assets
+
+1. Download and import the "AzureKinectExample" assets.
+2. Only import the minimal required folders, including `KinectScripts`, `Resources`, and specific SDK folders such as `Kinect4AzureSDK`.
+
+### Scene Configuration
+
+1. **Setup Kinect Controller:**
+   - Create an empty GameObject named `KinectController`.
+   - Add the script `KinectManager` to this object.
+
+2. **Setup Kinect Interface:**
+   - Create another empty GameObject named `Kinect4Azure`.
+   - Move `Kinect4Azure` under the `KinectController` as a child object.
+   - Add the script `Kinect4AzureInterface` to the `Kinect4Azure` object.
+
+3. Adjust settings for `KinectManager` and `Kinect4AzureInterface` as needed in the Inspector.
+
 ### Script Usage
 
-#### 1. KeyboardControlUI.cs
+#### KeyboardControlUI.cs
 - Attach to a GameObject managing the UI.
 - Link `Sliders`, `Toggles`, and the `Canvas` in the Unity Inspector.
 - **Keyboard Controls**:
@@ -46,23 +64,15 @@ This repository contains Unity scripts designed for projects leveraging Azure Ki
   - `Space`: Toggle switches.
   - `S`: Save settings to a JSON file.
 
-#### 2. KinectHead.cs
+#### KinectHead.cs
 - Attach to any GameObject that needs to track the user's head position.
 - Configure the `sensorIndex`, `playerIndex`, and `positionOffset` in the Inspector.
 - Use public methods like `UpdateOffsetX`, `ToggleOppositeX` for runtime control.
 
-#### 3. SliderController.cs
+#### SliderController.cs
 - Attach to any slider that displays its value in a text field.
 - Link the `Slider` and `Text` components in the Inspector.
 
-#### 4. WindowFocus.cs
+#### WindowFocus.cs
 - Attach to a GameObject in the Unity scene.
 - Automatically pauses the application when the Unity window loses focus.
-
-### Example Scene Setup
-
-1. Create a canvas with sliders and toggles.
-2. Add a GameObject with `KeyboardControlUI.cs` attached to manage the UI interactions.
-3. Add a GameObject representing the user’s avatar with `KinectHead.cs` attached to handle position tracking.
-4. Link necessary UI elements like `SliderController.cs` to individual sliders.
-5. Include `WindowFocus.cs` on a global object for application focus management.
