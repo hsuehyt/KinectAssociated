@@ -62,7 +62,7 @@ This repository contains Unity scripts designed for projects leveraging Azure Ki
   - `Tab`: Show/hide the UI canvas.
   - `Arrow Keys`: Navigate between sliders and toggles.
   - `Space`: Toggle switches.
-  - `S`: Save settings to a JSON file.
+  - `S`: Save settings to a JSON file at the following location: C:/Users/user/AppData/LocalLow/CompanyName/ProductName/settings.json
 
 #### KinectHead.cs
 - Attach to any GameObject that needs to track the user's head position.
