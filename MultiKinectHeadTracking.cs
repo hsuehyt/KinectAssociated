@@ -81,4 +81,36 @@ public class MultiKinectHeadTracking : MonoBehaviour
             }
         }
     }
+
+    // Methods to dynamically update position offset
+    public void UpdateOffsetX(float value)
+    {
+        positionOffset.x = value;
+    }
+
+    public void UpdateOffsetY(float value)
+    {
+        positionOffset.y = value;
+    }
+
+    public void UpdateOffsetZ(float value)
+    {
+        positionOffset.z = value;
+    }
+
+    // Methods to dynamically toggle opposite movement
+    public void ToggleOppositeX(bool value)
+    {
+        oppositeX = value;
+    }
+
+    public void ToggleOppositeY(bool value)
+    {
+        oppositeY = value;
+    }
+
+    public void ToggleOppositeZ(bool value)
+    {
+        oppositeZ = value;
+    }
 }
